@@ -8,4 +8,3 @@ const app = createApp(App)
 app.use(Vant)
 app.use(router)
 app.mount('#app')
-//This is Flag
