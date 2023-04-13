@@ -75,7 +75,7 @@ export default {
       } else {
         // console.log('sign', values);
         if (this.username != '' && this.password != '') {
-          axios.post("http://localhost:1919/ctf/signup", {
+          axios.post("http://18.136.124.252:1919/ctf/signup", {
             account: this.username,
             password: this.password
           }).then(res => {
@@ -104,7 +104,7 @@ export default {
             showFailToast('Need Correct Verification Code');
           }
           else {
-            let url = "http://localhost:1919/ctf/getUser" + "?account=" + this.username
+            let url = "http://18.136.124.252:1919/ctf/getUser" + "?account=" + this.username
             axios.get(url, {
             }).then(res => {
               if (res.data != '') {
@@ -127,7 +127,7 @@ export default {
       this.title = 'Login'
       sessionStorage.setItem('user', this.username);
       if (this.username !== 'root') {
-        axios.post("http://localhost:1919/ctf/login", {
+        axios.post("http://18.136.124.252:1919/ctf/login", {
           account: this.username,
           password: this.password
         }).then(res => {
@@ -156,7 +156,7 @@ export default {
                 alert("IP is not allowed");
                 // this.$router.push('/root');
               } else {
-                axios.post("http://localhost:1919/ctf/login", {
+                axios.post("http://18.136.124.252:1919/ctf/login", {
                   account: this.username,
                   password: this.password
                 }).then(res => {
