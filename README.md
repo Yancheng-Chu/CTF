@@ -6,6 +6,8 @@
 yarn install
 yarn add vue-router
 yarn add vant
+yarn add js-cookie
+yarn add axios
 ```
 
 ### Compiles and hot-reloads for development

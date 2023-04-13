@@ -1,3 +1,11 @@
+<!-- /*
+ * @Author: yancheng chu
+ * @Date: 2023-03-13 01:30:00
+ * @LastEditors: yancheng chu
+ * @LastEditTime: 2023-04-13 03:00:00
+ * @Path: https://github.com/Yancheng-Chu/
+ * @Description:CTF
+ */ -->
 <template>
     <div v-show="checked">
         <div style="display: flex; justify-content: center; align-items: center;margin-top: 200px;">
@@ -56,11 +64,13 @@ export default {
             flag10: 'https://kekkai-1315789628.cos.ap-shanghai.myqcloud.com/resource/ctf/flag10.zip',
             password: '',
             checked: true,
-            blogs: []
+            blogs: [],
+            username:''
         }
     },
     created() {
         const value = sessionStorage.getItem('user');
+        this.username = value
         let c = value == 'root'
         let url = "http://localhost:1919/ctf/getBlog" + "?show=" + !c
         axios.get(url, {
@@ -91,10 +101,21 @@ export default {
     },
     methods: {
         onCheck() {
-            if (this.password == '123456') {
-                Cookies.set('flag4', '192.168.11.1')
-                this.checked = false
-            }
+            axios.post("http://localhost:1919/profile", {
+                  account: this.username,
+                  password: this.password
+                }).then(res => {
+                  if (res.data == 'Success') {
+                    Cookies.set('flag4', '192.168.11.1')
+                    this.checked = false
+                  }
+                  else{
+                    alert('2FA is not correct')
+                  }
+                  // console.log(res)
+                }).catch(err => {
+                  console.log(err)
+                })
         },
     }
 }
