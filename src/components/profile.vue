@@ -103,7 +103,7 @@ export default {
         onCheck() {
             axios.post("http://18.136.124.252:1919/profile", {
                   account: this.username,
-                  password: this.password
+                  tfa: this.password
                 }).then(res => {
                   if (res.data == 'Success') {
                     Cookies.set('flag4', '192.168.11.1')
