@@ -59,7 +59,7 @@ import axios from "axios";
 export default {
     data() {
         return {
-            flag7: 'https://kekkai-1315789628.cos.ap-shanghai.myqcloud.com/resource/ctf/flag7',
+            flag7: 'https://kekkai-1315789628.cos.ap-shanghai.myqcloud.com/resource/ctf/flag7maze',
             flag8: 'https://kekkai-1315789628.cos.ap-shanghai.myqcloud.com/resource/ctf/flag8.exe',
             flag10: 'https://kekkai-1315789628.cos.ap-shanghai.myqcloud.com/resource/ctf/flag10.zip',
             password: '',
