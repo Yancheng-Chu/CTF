@@ -72,7 +72,7 @@ export default {
         const value = sessionStorage.getItem('user');
         this.username = value
         let c = value == 'root'
-        let url = "http://18.136.124.252:1919/ctf/getBlog" + "?show=" + !c
+        let url = "http://localhost:1919/ctf/getBlog" + "?show=" + !c
         axios.get(url, {
         }).then(res => {
             if (res.data != '') {
@@ -101,7 +101,7 @@ export default {
     },
     methods: {
         onCheck() {
-            axios.post("http://18.136.124.252:1919/profile", {
+            axios.post("http://localhost:1919/profile", {
                   account: this.username,
                   tfa: this.password
                 }).then(res => {
